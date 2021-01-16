@@ -12,7 +12,7 @@ public class Simon : MonoBehaviour
     List<Button> buttons = new List<Button>();
 
     [SerializeField]
-    int numberOfChoices = 2;
+    int numberOfChoices;
 
     List<int> choices = new List<int>();
     int randomNumber;
@@ -26,26 +26,40 @@ public class Simon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        TakeTurn(numberOfChoices);
+        
     }
 
-    public int[] TakeTurn(int numberOfChoices)
+    public List<int> TakeTurn(int numberOfChoices)
     {
-        int[] choices = new int[numberOfChoices];
+        
+        choices = new List<int>();
 
         for (int i = 0; i < numberOfChoices; i++)
         {
-            choices[i] = UnityEngine.Random.Range(0, 4);
-            buttons[choices[i]].Activate();
+            choices.Add(UnityEngine.Random.Range(0, 4));
+            
         }
 
         if (debugMode)
             LogChoices(choices, numberOfChoices);
 
+        StartCoroutine(PressButtons());
+
         return choices;
     }
 
-    private void LogChoices(int[] choices, int num)
+    IEnumerator PressButtons()
+    {
+        for (int i = 0; i < choices.Count; i++)
+        {
+            buttons[choices[i]].Activate();
+            yield return new WaitForSeconds(0.35f);
+       }
+    }
+
+
+
+    private void LogChoices(List<int> choices, int num)
     {
         string outputString = choices[0].ToString();
         for (int i = 1; i < num; i++)

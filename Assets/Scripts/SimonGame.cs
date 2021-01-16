@@ -24,6 +24,8 @@ public class SimonGame : MonoBehaviour
         {
             b.buttonPressed += HandleButtonPressed;
         }
+
+        simonPlayer.TakeTurn(numberOfPresses);
     }
 
     private void HandleButtonPressed(Button obj)
@@ -37,6 +39,7 @@ public class SimonGame : MonoBehaviour
     }
 
     List<string> simonsTurn = new List<string>();
+    bool turnTaken = false;
 
     // Update is called once per frame
     void Update()
@@ -61,9 +64,9 @@ public class SimonGame : MonoBehaviour
     private string simonsSelection()
     {
         string simonsSelectionString = "";
-        foreach (string s in simonsTurn)
+        
         {
-            simonsSelectionString += s + ", ";
+           simonsSelectionString += simonsSelectionString + ", ";
         }
 
         return simonsSelectionString;

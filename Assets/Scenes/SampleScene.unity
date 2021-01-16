@@ -244,7 +244,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c59fae50717e6cb4e8bc7828f2a0a0ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonColor: {r: 0, g: 0, b: 0, a: 0}
+  buttonColor: {r: 1, g: 0.95554936, b: 0, a: 0}
   buttonSpeed: 0.1
 --- !u!65 &264072935
 BoxCollider:
@@ -354,7 +354,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c59fae50717e6cb4e8bc7828f2a0a0ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonColor: {r: 0, g: 0, b: 0, a: 0}
+  buttonColor: {r: 1, g: 0, b: 0, a: 0}
   buttonSpeed: 0.1
 --- !u!65 &695370191
 BoxCollider:
@@ -557,7 +557,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c59fae50717e6cb4e8bc7828f2a0a0ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonColor: {r: 0, g: 0, b: 0, a: 0}
+  buttonColor: {r: 0, g: 0.11251116, b: 1, a: 0}
   buttonSpeed: 0.1
 --- !u!65 &897029674
 BoxCollider:
@@ -852,7 +852,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c59fae50717e6cb4e8bc7828f2a0a0ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonColor: {r: 0, g: 0, b: 0, a: 0}
+  buttonColor: {r: 0.13919175, g: 1, b: 0, a: 0}
   buttonSpeed: 0.1
 --- !u!65 &1216384137
 BoxCollider:
