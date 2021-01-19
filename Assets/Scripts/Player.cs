@@ -8,6 +8,8 @@ public class Player : MonoBehaviour
     Camera cam; //Rreference for main camera
     Ray ray; // Reference for our mouse/finger/fire press position
 
+    public bool isOurTurn = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +19,8 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!isOurTurn) return;
+
         if (Input.GetButtonDown("Fire1"))
         {
             Debug.Log("Someone pressed the fire button!");

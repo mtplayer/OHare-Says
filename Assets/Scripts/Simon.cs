@@ -53,7 +53,7 @@ public class Simon : MonoBehaviour
         for (int i = 0; i < choices.Count; i++)
         {
             buttons[choices[i]].Activate();
-            yield return new WaitForSeconds(0.35f);
+            yield return new WaitForSeconds(1f);
        }
     }
 

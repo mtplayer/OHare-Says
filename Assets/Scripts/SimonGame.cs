@@ -26,7 +26,10 @@ public class SimonGame : MonoBehaviour
         }
 
         simonPlayer.TakeTurn(numberOfPresses);
+        turnTaken = true;
     }
+
+    public int playerButtonPress = 0;
 
     private void HandleButtonPressed(Button obj)
     {
@@ -36,6 +39,41 @@ public class SimonGame : MonoBehaviour
         {
             simonsTurn.Add(obj.name);
         }
+
+        if (turn == 1)
+        {
+            if (playerButtonPress == numberOfPresses - 1) 
+            {
+                Debug.Log("Great job! You successfully repeated Simon's pattern!");
+                numberOfPresses++;
+                Invoke("SwitchTurn", 2f);
+                
+                return;
+            }
+            
+            if (simonsTurn[playerButtonPress].Equals(obj.name)) 
+            {
+                Debug.Log(("You hit thhe right button!")); 
+            } 
+            
+            else
+            {
+                Debug.Log("You hit the wrong button! Game Over!");
+                numberOfPresses = 2;
+                Invoke("SwitchTurn", 2f);
+                return;
+            }
+            playerButtonPress++;
+        }
+    }
+
+    void SwitchTurn()
+    {
+        turn = 0;
+        player.isOurTurn = false;
+        turnTaken = false;
+        playerButtonPress = 0;
+        simonsTurn.Clear();
     }
 
     List<string> simonsTurn = new List<string>();
@@ -45,11 +83,17 @@ public class SimonGame : MonoBehaviour
     void Update()
     {
         //It's Simon's turn
-        if (turn == 0)
+        if (turn == 0 && !turnTaken)
         {
+            simonPlayer.TakeTurn(numberOfPresses);
+            turnTaken = true;
+        }
+        else if (turn == 0 && turnTaken)
+        { 
             if (simonsTurn.Count == numberOfPresses)
             {
-                Debug.Log("<color=green>SimonGame here! Simon has finished his turn:" + simonsSelection() + "</color>");
+                Debug.Log("<color=green>SimonGame here! Simon has finished his turn:" + simonsSelection() + ", now it's your turn to play!</color>");
+                player.isOurTurn = true;
                 turn = 1;
             }
         }
